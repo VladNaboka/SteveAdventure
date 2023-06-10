@@ -1,14 +1,15 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public TileBoard board;
     public CanvasGroup gameOver;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI hiscoreText;
+    public Text scoreText;
+    public Text hiscoreText;
 
     private int score;
 
