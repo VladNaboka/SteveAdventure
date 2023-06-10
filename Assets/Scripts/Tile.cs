@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     private Image background;
     private TextMeshProUGUI text;
     public Image spriteTile;
+    public Animator anim;
 
     private void Awake()
     {
@@ -25,8 +26,19 @@ public class Tile : MonoBehaviour
 
         background.color = state.backgroundColor;
         spriteTile.sprite = state.sprite;
+        StartCoroutine(tileAnimation());
+        //particleSystem.Play();
+
         //text.color = state.textColor;
         //text.text = state.number.ToString();
+    }
+
+    IEnumerator tileAnimation()
+    {
+        anim.SetBool("TileBool", true);
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Stop anim");
+        anim.SetBool("TileBool", false);
     }
 
     public void Spawn(TileCell cell)
