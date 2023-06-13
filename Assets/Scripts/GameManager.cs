@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+        SoundManager.instance.Play("Click");
         // reset score
         SetScore(0);
         hiscoreText.text = LoadHiscore().ToString();
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        SoundManager.instance.Play("Lose");
         board.enabled = false;
         gameOver.interactable = true;
 
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     }
     public void Menu()
     {
+        SoundManager.instance.Play("Click");
         board.enabled = false;
         gameOver.interactable = true;
 
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int points)
     {
+        //SoundManager.instance.Play("Merge");
         SetScore(score + points);
     }
 

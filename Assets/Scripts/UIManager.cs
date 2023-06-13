@@ -10,10 +10,12 @@ public class UIManager : MonoBehaviour
 
     public void SpawnFirstFrame()
     {
+        SoundManager.instance.Play("Click");
         _firstFrame.gameObject.SetActive(true);
     }
     public void SpawnSecondFrame()
     {
+        SoundManager.instance.Play("Click");
         _secondFrame.gameObject.SetActive(true);
     }
 }

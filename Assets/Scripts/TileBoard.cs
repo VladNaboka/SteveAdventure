@@ -37,6 +37,7 @@ public class TileBoard : MonoBehaviour
         tile.SetState(tileStates[0]);
         tile.Spawn(grid.GetRandomEmptyCell());
         tiles.Add(tile);
+        SoundManager.instance.Play("Spawn");
     }
 
     private void Update()
@@ -44,12 +45,16 @@ public class TileBoard : MonoBehaviour
         if (!waiting)
         {
             if (SwipeController.swipeUp || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+                SoundManager.instance.Play("Swipe");
                 Move(Vector2Int.up, 0, 1, 1, 1);
             } else if (SwipeController.swipeLeft || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
                 Move(Vector2Int.left, 1, 1, 0, 1);
+                SoundManager.instance.Play("Swipe");
             } else if (SwipeController.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
                 Move(Vector2Int.down, 0, 1, grid.height - 2, -1);
+                SoundManager.instance.Play("Swipe");
             } else if (SwipeController.swipeRight || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+                SoundManager.instance.Play("Swipe");
                 Move(Vector2Int.right, grid.width - 2, -1, 0, 1);
             }
         }
@@ -122,6 +127,7 @@ public class TileBoard : MonoBehaviour
 
         b.SetState(newState);
         gameManager.IncreaseScore(newState.number);
+        SoundManager.instance.Play("Merge");
     }
 
     private int IndexOf(TileState state)

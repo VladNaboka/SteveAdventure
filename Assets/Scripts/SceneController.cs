@@ -7,6 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public void StartGame()
     {
+        SoundManager.instance.Play("Click");
         SceneManager.LoadScene("2048");
     }
 }
