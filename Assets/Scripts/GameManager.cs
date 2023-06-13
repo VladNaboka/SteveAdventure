@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
-    public void NewGame()
+    public void RestartSound()
     {
         SoundManager.instance.Play("Click");
+    }
+    public void NewGame()
+    {
         // reset score
         SetScore(0);
         hiscoreText.text = LoadHiscore().ToString();
