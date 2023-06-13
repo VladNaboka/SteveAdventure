@@ -651,8 +651,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Spawn
     clip: {fileID: 8300000, guid: 43eb1f92c172ca24492db4cb4dcacad7, type: 3}
-    volume: 0.749
-    pitch: 1.33
+    volume: 0.16
+    pitch: 1.44
     playOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -672,7 +672,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Merge
     clip: {fileID: 8300000, guid: c315530ebfe0efc4da1ffc232d44fca5, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     playOnAwake: 0
     loop: 0
@@ -800,10 +800,10 @@ RectTransform:
   m_Father: {fileID: 385138346}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.546}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90.475586, y: 318.44153}
-  m_SizeDelta: {x: 804.5607, y: 191.0478}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 90.475586, y: -851.5585}
+  m_SizeDelta: {x: 804.5607, y: 191.04785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037158406
 MonoBehaviour:

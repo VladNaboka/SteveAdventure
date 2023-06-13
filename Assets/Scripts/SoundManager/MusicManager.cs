@@ -7,6 +7,8 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField] private Music[] _musicClips;
     public static MusicManager instance;
+
+    private int _prevMusic;
     private void Awake()
     {
         if (instance == null)
@@ -28,26 +30,28 @@ public class MusicManager : MonoBehaviour
             //music.source.playOnAwake = true;
             //music.source.loop = true;
         }
-        int randomNum = UnityEngine.Random.Range(1, 4);
-        PlayMusic(randomNum);
-    }
-    private void Update()
-    {
-        //if(_)
+        StartCoroutine(PlayMusic());
     }
 
-    private void PlayMusic(int musicNumber)
+    private IEnumerator PlayMusic()
     {
-        Music m = Array.Find(_musicClips, music => music.number == musicNumber);
+        int randomNum = UnityEngine.Random.Range(1, 4);
+        while(randomNum == _prevMusic)
+        {
+            randomNum = UnityEngine.Random.Range(1, 4);
+            //StartCoroutine(PlayMusic());
+        }
+
+        Music m = Array.Find(_musicClips, music => music.number == randomNum);
         if (m == null)
         {
             Debug.LogWarning("Wrong sound name!");
-            return;
+            yield break;
         }
         m.source.Play();
-    }
-    private void PlayNext() 
-    {
-        int prevMusic;
+        yield return new WaitUntil(() => m.source.isPlaying == false);
+        _prevMusic = randomNum;
+        m.source.Stop();
+        StartCoroutine(PlayMusic());
     }
 }
