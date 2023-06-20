@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text hiscoreText;
 
+    public AdLose adLose;
+
     private int score;
 
     private void Start()
@@ -21,6 +23,10 @@ public class GameManager : MonoBehaviour
     public void RestartSound()
     {
         SoundManager.instance.Play("Click");
+    }
+    public void AdsButton()
+    {
+        adLose.ShowAd();
     }
     public void NewGame()
     {
@@ -44,7 +50,7 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.Play("Lose");
         board.enabled = false;
         gameOver.interactable = true;
-
+        adLose.ShowAd();
         StartCoroutine(Fade(gameOver, 1f, 1f));
     }
     public void Menu()
