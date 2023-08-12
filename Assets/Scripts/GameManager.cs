@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.Play("Lose");
         board.enabled = false;
         gameOver.interactable = true;
-        adLose.ShowAd();
         StartCoroutine(Fade(gameOver, 1f, 1f));
+        adLose.ShowAd();
     }
     public void Menu()
     {
